@@ -76,6 +76,18 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 
+typedef struct
+{
+ uint8_t led1;
+ uint8_t led2;
+ uint8_t led3;
+ float someVar;
+ int someVar2;
+}SharedType;
+
+
+SharedType *sharedMemory = (SharedType*)(0x38000000);
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -137,6 +149,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	 if( HAL_HSEM_FastTake(1)==HAL_OK){//Can lock HSEM1
+	  sharedMemory->led1 = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
+	  //unlock HSEM
+	  HAL_HSEM_Release(1, 0);
+	 }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
