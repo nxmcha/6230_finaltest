@@ -708,7 +708,7 @@ int main(void)
  80007a4:	4603      	mov	r3, r0
  80007a6:	2b00      	cmp	r3, #0
  80007a8:	d1f9      	bne.n	800079e <main+0x9a>
-			HAL_GPIO_WritePin(L1_GPIO_Port, L1_Pin, sharedMemory->led1);
+			HAL_GPIO_WritePin(L1_GPIO_Port, L1_Pin, sharedMemory->led1);//write pin led1
  80007aa:	4b26      	ldr	r3, [pc, #152]	; (8000844 <main+0x140>)
  80007ac:	681b      	ldr	r3, [r3, #0]
  80007ae:	781b      	ldrb	r3, [r3, #0]
@@ -716,7 +716,7 @@ int main(void)
  80007b2:	f44f 5180 	mov.w	r1, #4096	; 0x1000
  80007b6:	4824      	ldr	r0, [pc, #144]	; (8000848 <main+0x144>)
  80007b8:	f001 fc3c 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L2_GPIO_Port, L2_Pin, sharedMemory->led2);
+			HAL_GPIO_WritePin(L2_GPIO_Port, L2_Pin, sharedMemory->led2);//write pin led2
  80007bc:	4b21      	ldr	r3, [pc, #132]	; (8000844 <main+0x140>)
  80007be:	681b      	ldr	r3, [r3, #0]
  80007c0:	785b      	ldrb	r3, [r3, #1]
@@ -724,7 +724,7 @@ int main(void)
  80007c4:	f44f 7100 	mov.w	r1, #512	; 0x200
  80007c8:	481f      	ldr	r0, [pc, #124]	; (8000848 <main+0x144>)
  80007ca:	f001 fc33 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L3_GPIO_Port, L3_Pin, sharedMemory->led3);
+			HAL_GPIO_WritePin(L3_GPIO_Port, L3_Pin, sharedMemory->led3);//write pin led3
  80007ce:	4b1d      	ldr	r3, [pc, #116]	; (8000844 <main+0x140>)
  80007d0:	681b      	ldr	r3, [r3, #0]
  80007d2:	789b      	ldrb	r3, [r3, #2]
@@ -732,7 +732,7 @@ int main(void)
  80007d6:	f44f 4100 	mov.w	r1, #32768	; 0x8000
  80007da:	481c      	ldr	r0, [pc, #112]	; (800084c <main+0x148>)
  80007dc:	f001 fc2a 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L4_GPIO_Port, L4_Pin, sharedMemory->led4);
+			HAL_GPIO_WritePin(L4_GPIO_Port, L4_Pin, sharedMemory->led4);//write pin led4
  80007e0:	4b18      	ldr	r3, [pc, #96]	; (8000844 <main+0x140>)
  80007e2:	681b      	ldr	r3, [r3, #0]
  80007e4:	78db      	ldrb	r3, [r3, #3]
@@ -740,7 +740,7 @@ int main(void)
  80007e8:	f44f 4180 	mov.w	r1, #16384	; 0x4000
  80007ec:	4817      	ldr	r0, [pc, #92]	; (800084c <main+0x148>)
  80007ee:	f001 fc21 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L5_GPIO_Port, L5_Pin, sharedMemory->led5);
+			HAL_GPIO_WritePin(L5_GPIO_Port, L5_Pin, sharedMemory->led5);//write pin led5
  80007f2:	4b14      	ldr	r3, [pc, #80]	; (8000844 <main+0x140>)
  80007f4:	681b      	ldr	r3, [r3, #0]
  80007f6:	791b      	ldrb	r3, [r3, #4]
@@ -748,7 +748,7 @@ int main(void)
  80007fa:	2120      	movs	r1, #32
  80007fc:	4814      	ldr	r0, [pc, #80]	; (8000850 <main+0x14c>)
  80007fe:	f001 fc19 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L6_GPIO_Port, L6_Pin, sharedMemory->led6);
+			HAL_GPIO_WritePin(L6_GPIO_Port, L6_Pin, sharedMemory->led6);//write pin led6
  8000802:	4b10      	ldr	r3, [pc, #64]	; (8000844 <main+0x140>)
  8000804:	681b      	ldr	r3, [r3, #0]
  8000806:	795b      	ldrb	r3, [r3, #5]
@@ -756,7 +756,7 @@ int main(void)
  800080a:	2140      	movs	r1, #64	; 0x40
  800080c:	4811      	ldr	r0, [pc, #68]	; (8000854 <main+0x150>)
  800080e:	f001 fc11 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L7_GPIO_Port, L7_Pin, sharedMemory->led7);
+			HAL_GPIO_WritePin(L7_GPIO_Port, L7_Pin, sharedMemory->led7);//write pin led7
  8000812:	4b0c      	ldr	r3, [pc, #48]	; (8000844 <main+0x140>)
  8000814:	681b      	ldr	r3, [r3, #0]
  8000816:	799b      	ldrb	r3, [r3, #6]
@@ -764,7 +764,7 @@ int main(void)
  800081a:	2120      	movs	r1, #32
  800081c:	480d      	ldr	r0, [pc, #52]	; (8000854 <main+0x150>)
  800081e:	f001 fc09 	bl	8002034 <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(L8_GPIO_Port, L8_Pin, sharedMemory->led8);
+			HAL_GPIO_WritePin(L8_GPIO_Port, L8_Pin, sharedMemory->led8);//write pin led8
  8000822:	4b08      	ldr	r3, [pc, #32]	; (8000844 <main+0x140>)
  8000824:	681b      	ldr	r3, [r3, #0]
  8000826:	79db      	ldrb	r3, [r3, #7]

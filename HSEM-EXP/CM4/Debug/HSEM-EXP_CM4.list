@@ -31,11 +31,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  13 .debug_macro  0003817f  00000000  00000000  000334f8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_line   00008222  00000000  00000000  0006b677  2**0
+ 14 .debug_line   00008224  00000000  00000000  0006b677  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_str    001787b6  00000000  00000000  00073899  2**0
+ 15 .debug_str    001787b6  00000000  00000000  0007389b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .comment      00000053  00000000  00000000  001ec04f  2**0
+ 16 .comment      00000053  00000000  00000000  001ec051  2**0
                   CONTENTS, READONLY
  17 .debug_frame  00001af0  00000000  00000000  001ec0a4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -486,7 +486,7 @@ int main(void) {
  810058a:	2200      	movs	r2, #0
  810058c:	601a      	str	r2, [r3, #0]
 			}
-			if (d2 == 1 && d1 == 1) {//ถ้าทั้งสองฝั่งออก defense(d2) and defense(p1)
+			if (d2 == 1 && d1 == 1) {//ถ้าทั้งสองฝั่งออก defense(p2) and defense(p1)
  810058e:	4b6b      	ldr	r3, [pc, #428]	; (810073c <main+0x42c>)
  8100590:	681b      	ldr	r3, [r3, #0]
  8100592:	2b01      	cmp	r3, #1
@@ -504,7 +504,7 @@ int main(void) {
  81005a6:	2200      	movs	r2, #0
  81005a8:	601a      	str	r2, [r3, #0]
 			}
-			if (a2 == 1 && d1 == 1 && charge2 > 0) {
+			if (a2 == 1 && d1 == 1 && charge2 > 0) {//ถ้าทั้งสองฝั่งออก attack(p2) and defense(p1)
  81005aa:	4b6d      	ldr	r3, [pc, #436]	; (8100760 <main+0x450>)
  81005ac:	681b      	ldr	r3, [r3, #0]
  81005ae:	2b01      	cmp	r3, #1
@@ -517,23 +517,23 @@ int main(void) {
  81005bc:	681b      	ldr	r3, [r3, #0]
  81005be:	2b00      	cmp	r3, #0
  81005c0:	dd0a      	ble.n	81005d8 <main+0x2c8>
-				charge2 -= 1;
+				charge2 -= 1; //ลด charge player 2 ที่เก็บไว้
  81005c2:	4b65      	ldr	r3, [pc, #404]	; (8100758 <main+0x448>)
  81005c4:	681b      	ldr	r3, [r3, #0]
  81005c6:	3b01      	subs	r3, #1
  81005c8:	4a63      	ldr	r2, [pc, #396]	; (8100758 <main+0x448>)
  81005ca:	6013      	str	r3, [r2, #0]
 
-				a2 = 0;
+				a2 = 0;// reset attack player2 flag
  81005cc:	4b64      	ldr	r3, [pc, #400]	; (8100760 <main+0x450>)
  81005ce:	2200      	movs	r2, #0
  81005d0:	601a      	str	r2, [r3, #0]
-				d1 = 0;
+				d1 = 0;// reset defense player1 flag
  81005d2:	4b62      	ldr	r3, [pc, #392]	; (810075c <main+0x44c>)
  81005d4:	2200      	movs	r2, #0
  81005d6:	601a      	str	r2, [r3, #0]
 			}
-			if (a1 == 1 && d2 == 1 && charge1 > 0) {
+			if (a1 == 1 && d2 == 1 && charge1 > 0) {//ถ้าทั้งสองฝั่งออก attack(p1) and defense(p2)
  81005d8:	4b62      	ldr	r3, [pc, #392]	; (8100764 <main+0x454>)
  81005da:	681b      	ldr	r3, [r3, #0]
  81005dc:	2b01      	cmp	r3, #1
@@ -546,23 +546,23 @@ int main(void) {
  81005ea:	681b      	ldr	r3, [r3, #0]
  81005ec:	2b00      	cmp	r3, #0
  81005ee:	dd0a      	ble.n	8100606 <main+0x2f6>
-				charge1 -= 1;
+				charge1 -= 1;//ลด charge player 1 ที่เก็บไว้
  81005f0:	4b58      	ldr	r3, [pc, #352]	; (8100754 <main+0x444>)
  81005f2:	681b      	ldr	r3, [r3, #0]
  81005f4:	3b01      	subs	r3, #1
  81005f6:	4a57      	ldr	r2, [pc, #348]	; (8100754 <main+0x444>)
  81005f8:	6013      	str	r3, [r2, #0]
 
-				a1 = 0;
+				a1 = 0; // reset attack player1 flag
  81005fa:	4b5a      	ldr	r3, [pc, #360]	; (8100764 <main+0x454>)
  81005fc:	2200      	movs	r2, #0
  81005fe:	601a      	str	r2, [r3, #0]
-				d2 = 0;
+				d2 = 0; // reset defense player2 flag
  8100600:	4b4e      	ldr	r3, [pc, #312]	; (810073c <main+0x42c>)
  8100602:	2200      	movs	r2, #0
  8100604:	601a      	str	r2, [r3, #0]
 			}
-			if (a1 == 1 && a2 == 1 && charge1 > 0 && charge2 > 0) {
+			if (a1 == 1 && a2 == 1 && charge1 > 0 && charge2 > 0) {//ถ้าทั้งสองฝั่งออก attack(p1) and attack(p2)
  8100606:	4b57      	ldr	r3, [pc, #348]	; (8100764 <main+0x454>)
  8100608:	681b      	ldr	r3, [r3, #0]
  810060a:	2b01      	cmp	r3, #1
@@ -579,28 +579,28 @@ int main(void) {
  8100620:	681b      	ldr	r3, [r3, #0]
  8100622:	2b00      	cmp	r3, #0
  8100624:	dd0f      	ble.n	8100646 <main+0x336>
-				c1 -= 1;
- 8100626:	4b49      	ldr	r3, [pc, #292]	; (810074c <main+0x43c>)
+				charge1 -= 1; //ลด charge player 1 ที่เก็บไว้
+ 8100626:	4b4b      	ldr	r3, [pc, #300]	; (8100754 <main+0x444>)
  8100628:	681b      	ldr	r3, [r3, #0]
  810062a:	3b01      	subs	r3, #1
- 810062c:	4a47      	ldr	r2, [pc, #284]	; (810074c <main+0x43c>)
+ 810062c:	4a49      	ldr	r2, [pc, #292]	; (8100754 <main+0x444>)
  810062e:	6013      	str	r3, [r2, #0]
-				c2 -= 1;
- 8100630:	4b47      	ldr	r3, [pc, #284]	; (8100750 <main+0x440>)
+				charge2 -= 1;//ลด charge player 2 ที่เก็บไว้
+ 8100630:	4b49      	ldr	r3, [pc, #292]	; (8100758 <main+0x448>)
  8100632:	681b      	ldr	r3, [r3, #0]
  8100634:	3b01      	subs	r3, #1
- 8100636:	4a46      	ldr	r2, [pc, #280]	; (8100750 <main+0x440>)
+ 8100636:	4a48      	ldr	r2, [pc, #288]	; (8100758 <main+0x448>)
  8100638:	6013      	str	r3, [r2, #0]
-				a1 = 0;
+				a1 = 0;// reset attack player1 flag
  810063a:	4b4a      	ldr	r3, [pc, #296]	; (8100764 <main+0x454>)
  810063c:	2200      	movs	r2, #0
  810063e:	601a      	str	r2, [r3, #0]
-				a2 = 0;
+				a2 = 0;// reset attack player2 flag
  8100640:	4b47      	ldr	r3, [pc, #284]	; (8100760 <main+0x450>)
  8100642:	2200      	movs	r2, #0
  8100644:	601a      	str	r2, [r3, #0]
 			}
-			if (a2 == 1 && c1 == 1 && charge1 > 0) {
+			if (a2 == 1 && c1 == 1 && charge1 > 0) {//ถ้าทั้งสองฝั่งออก attack(p2) and charge(p1)
  8100646:	4b46      	ldr	r3, [pc, #280]	; (8100760 <main+0x450>)
  8100648:	681b      	ldr	r3, [r3, #0]
  810064a:	2b01      	cmp	r3, #1
@@ -613,30 +613,30 @@ int main(void) {
  8100658:	681b      	ldr	r3, [r3, #0]
  810065a:	2b00      	cmp	r3, #0
  810065c:	dd10      	ble.n	8100680 <main+0x370>
-				heart2 += 1;
+				heart2 += 1;//คะแนน player 2 บวก 1
  810065e:	4b42      	ldr	r3, [pc, #264]	; (8100768 <main+0x458>)
  8100660:	681b      	ldr	r3, [r3, #0]
  8100662:	3301      	adds	r3, #1
  8100664:	4a40      	ldr	r2, [pc, #256]	; (8100768 <main+0x458>)
  8100666:	6013      	str	r3, [r2, #0]
-				charge1 = 0;
+				charge1 = 0;//reset charge p1
  8100668:	4b3a      	ldr	r3, [pc, #232]	; (8100754 <main+0x444>)
  810066a:	2200      	movs	r2, #0
  810066c:	601a      	str	r2, [r3, #0]
-				charge2 = 0;
+				charge2 = 0;//reset charge p2
  810066e:	4b3a      	ldr	r3, [pc, #232]	; (8100758 <main+0x448>)
  8100670:	2200      	movs	r2, #0
  8100672:	601a      	str	r2, [r3, #0]
-				a2 = 0;
+				a2 = 0;//reset attack player2 flag
  8100674:	4b3a      	ldr	r3, [pc, #232]	; (8100760 <main+0x450>)
  8100676:	2200      	movs	r2, #0
  8100678:	601a      	str	r2, [r3, #0]
-				c1 = 0;
+				c1 = 0;//reset charge player1 flag
  810067a:	4b34      	ldr	r3, [pc, #208]	; (810074c <main+0x43c>)
  810067c:	2200      	movs	r2, #0
  810067e:	601a      	str	r2, [r3, #0]
 			}
-			if (a1 == 1 && c2 == 1 && charge2 > 0) {
+			if (a1 == 1 && c2 == 1 && charge2 > 0) {//ถ้าทั้งสองฝั่งออก attack(p1) and charge(p2)
  8100680:	4b38      	ldr	r3, [pc, #224]	; (8100764 <main+0x454>)
  8100682:	681b      	ldr	r3, [r3, #0]
  8100684:	2b01      	cmp	r3, #1
@@ -649,25 +649,25 @@ int main(void) {
  8100692:	681b      	ldr	r3, [r3, #0]
  8100694:	2b00      	cmp	r3, #0
  8100696:	dd10      	ble.n	81006ba <main+0x3aa>
-				heart1 += 1;
+				heart1 += 1;//คะแนน player 1 บวก 1
  8100698:	4b34      	ldr	r3, [pc, #208]	; (810076c <main+0x45c>)
  810069a:	681b      	ldr	r3, [r3, #0]
  810069c:	3301      	adds	r3, #1
  810069e:	4a33      	ldr	r2, [pc, #204]	; (810076c <main+0x45c>)
  81006a0:	6013      	str	r3, [r2, #0]
-				charge1 = 0;
+				charge1 = 0;//reset charge p1
  81006a2:	4b2c      	ldr	r3, [pc, #176]	; (8100754 <main+0x444>)
  81006a4:	2200      	movs	r2, #0
  81006a6:	601a      	str	r2, [r3, #0]
-				charge2 = 0;
+				charge2 = 0;//reset charge p2
  81006a8:	4b2b      	ldr	r3, [pc, #172]	; (8100758 <main+0x448>)
  81006aa:	2200      	movs	r2, #0
  81006ac:	601a      	str	r2, [r3, #0]
-				a1 = 0;
+				a1 = 0;//reset attack player1 flag
  81006ae:	4b2d      	ldr	r3, [pc, #180]	; (8100764 <main+0x454>)
  81006b0:	2200      	movs	r2, #0
  81006b2:	601a      	str	r2, [r3, #0]
-				c2 = 0;
+				c2 = 0;//reset charge player2 flag
  81006b4:	4b26      	ldr	r3, [pc, #152]	; (8100750 <main+0x440>)
  81006b6:	2200      	movs	r2, #0
  81006b8:	601a      	str	r2, [r3, #0]
@@ -689,7 +689,7 @@ int main(void) {
  81006d2:	681b      	ldr	r3, [r3, #0]
  81006d4:	2b00      	cmp	r3, #0
  81006d6:	d11f      	bne.n	8100718 <main+0x408>
-				sharedMemory->led1 = GPIO_PIN_SET;
+				sharedMemory->led1 = GPIO_PIN_SET;//initial condition ให้ led ดับ
  81006d8:	4b25      	ldr	r3, [pc, #148]	; (8100770 <main+0x460>)
  81006da:	681b      	ldr	r3, [r3, #0]
  81006dc:	2201      	movs	r2, #1
@@ -735,7 +735,7 @@ int main(void) {
  810071a:	681b      	ldr	r3, [r3, #0]
  810071c:	2b01      	cmp	r3, #1
  810071e:	d103      	bne.n	8100728 <main+0x418>
-				sharedMemory->led1 = GPIO_PIN_RESET;
+				sharedMemory->led1 = GPIO_PIN_RESET; //ถ้า heart player 1 = 1 แสดง led 1 ให้ติด
  8100720:	4b13      	ldr	r3, [pc, #76]	; (8100770 <main+0x460>)
  8100722:	681b      	ldr	r3, [r3, #0]
  8100724:	2200      	movs	r2, #0
@@ -746,7 +746,7 @@ int main(void) {
  810072a:	681b      	ldr	r3, [r3, #0]
  810072c:	2b02      	cmp	r3, #2
  810072e:	d123      	bne.n	8100778 <main+0x468>
-				sharedMemory->led2 = GPIO_PIN_RESET;
+				sharedMemory->led2 = GPIO_PIN_RESET;//ถ้า heart player 1 = 2 แสดง led 2 ให้ติด
  8100730:	4b0f      	ldr	r3, [pc, #60]	; (8100770 <main+0x460>)
  8100732:	681b      	ldr	r3, [r3, #0]
  8100734:	e01e      	b.n	8100774 <main+0x464>
@@ -774,7 +774,7 @@ int main(void) {
  810077a:	681b      	ldr	r3, [r3, #0]
  810077c:	2b03      	cmp	r3, #3
  810077e:	d103      	bne.n	8100788 <main+0x478>
-				sharedMemory->led3 = GPIO_PIN_RESET;
+				sharedMemory->led3 = GPIO_PIN_RESET;//ถ้า heart player 1 = 3 แสดง led 3 ให้ติด
  8100780:	4b19      	ldr	r3, [pc, #100]	; (81007e8 <main+0x4d8>)
  8100782:	681b      	ldr	r3, [r3, #0]
  8100784:	2200      	movs	r2, #0
@@ -785,7 +785,7 @@ int main(void) {
  810078a:	681b      	ldr	r3, [r3, #0]
  810078c:	2b04      	cmp	r3, #4
  810078e:	d103      	bne.n	8100798 <main+0x488>
-				sharedMemory->led4 = GPIO_PIN_RESET;
+				sharedMemory->led4 = GPIO_PIN_RESET;//ถ้า heart player 1 = 4 แสดง led 4 ให้ติด
  8100790:	4b15      	ldr	r3, [pc, #84]	; (81007e8 <main+0x4d8>)
  8100792:	681b      	ldr	r3, [r3, #0]
  8100794:	2200      	movs	r2, #0
@@ -796,7 +796,7 @@ int main(void) {
  810079a:	681b      	ldr	r3, [r3, #0]
  810079c:	2b01      	cmp	r3, #1
  810079e:	d103      	bne.n	81007a8 <main+0x498>
-				sharedMemory->led5 = GPIO_PIN_RESET;
+				sharedMemory->led5 = GPIO_PIN_RESET;//ถ้า heart player 2 = 1 แสดง led 5 ให้ติด
  81007a0:	4b11      	ldr	r3, [pc, #68]	; (81007e8 <main+0x4d8>)
  81007a2:	681b      	ldr	r3, [r3, #0]
  81007a4:	2200      	movs	r2, #0
@@ -807,7 +807,7 @@ int main(void) {
  81007aa:	681b      	ldr	r3, [r3, #0]
  81007ac:	2b02      	cmp	r3, #2
  81007ae:	d103      	bne.n	81007b8 <main+0x4a8>
-				sharedMemory->led6 = GPIO_PIN_RESET;
+				sharedMemory->led6 = GPIO_PIN_RESET;//ถ้า heart player 2 = 1 แสดง led 6 ให้ติด
  81007b0:	4b0d      	ldr	r3, [pc, #52]	; (81007e8 <main+0x4d8>)
  81007b2:	681b      	ldr	r3, [r3, #0]
  81007b4:	2200      	movs	r2, #0
@@ -818,7 +818,7 @@ int main(void) {
  81007ba:	681b      	ldr	r3, [r3, #0]
  81007bc:	2b03      	cmp	r3, #3
  81007be:	d103      	bne.n	81007c8 <main+0x4b8>
-				sharedMemory->led7 = GPIO_PIN_RESET;
+				sharedMemory->led7 = GPIO_PIN_RESET;//ถ้า heart player 2 = 1 แสดง led 7 ให้ติด
  81007c0:	4b09      	ldr	r3, [pc, #36]	; (81007e8 <main+0x4d8>)
  81007c2:	681b      	ldr	r3, [r3, #0]
  81007c4:	2200      	movs	r2, #0
@@ -829,14 +829,14 @@ int main(void) {
  81007ca:	681b      	ldr	r3, [r3, #0]
  81007cc:	2b04      	cmp	r3, #4
  81007ce:	d103      	bne.n	81007d8 <main+0x4c8>
-				sharedMemory->led8 = GPIO_PIN_RESET;
+				sharedMemory->led8 = GPIO_PIN_RESET;//ถ้า heart player 2 = 1 แสดง led 8 ให้ติด
  81007d0:	4b05      	ldr	r3, [pc, #20]	; (81007e8 <main+0x4d8>)
  81007d2:	681b      	ldr	r3, [r3, #0]
  81007d4:	2200      	movs	r2, #0
  81007d6:	71da      	strb	r2, [r3, #7]
 			}
 
-			HAL_HSEM_Release(1, 0);
+			HAL_HSEM_Release(1, 0);//unlock hsem
  81007d8:	2100      	movs	r1, #0
  81007da:	2001      	movs	r0, #1
  81007dc:	f000 fc70 	bl	81010c0 <HAL_HSEM_Release>
