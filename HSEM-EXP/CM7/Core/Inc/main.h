@@ -58,6 +58,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define L7_Pin GPIO_PIN_5
+#define L7_GPIO_Port GPIOA
+#define L6_Pin GPIO_PIN_6
+#define L6_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
@@ -66,6 +70,18 @@ void Error_Handler(void);
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
+#define L4_Pin GPIO_PIN_14
+#define L4_GPIO_Port GPIOD
+#define L3_Pin GPIO_PIN_15
+#define L3_GPIO_Port GPIOD
+#define L2_Pin GPIO_PIN_9
+#define L2_GPIO_Port GPIOG
+#define L1_Pin GPIO_PIN_12
+#define L1_GPIO_Port GPIOG
+#define L5_Pin GPIO_PIN_5
+#define L5_GPIO_Port GPIOB
+#define L8_Pin GPIO_PIN_9
+#define L8_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_1
 #define LD2_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */

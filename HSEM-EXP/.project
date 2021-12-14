@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>HSEM-EXP</name>
+	<name>HSEM_EXP</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -15,7 +15,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1635319021498</id>
+			<id>0</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
